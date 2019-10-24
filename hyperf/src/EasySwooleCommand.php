@@ -13,7 +13,9 @@ declare(strict_types=1);
 namespace HyperfCloud\EasyswooleCommand;
 
 use EasySwoole\EasySwoole\Command\CommandInterface;
+use EasySwoole\EasySwoole\Core;
 use Hyperf\Command\Command;
+use Symfony\Component\Console\Input\InputOption;
 
 class EasySwooleCommand extends Command
 {
@@ -25,10 +27,19 @@ class EasySwooleCommand extends Command
         $this->command = $command;
     }
 
+    public function configure()
+    {
+        $this->addOption('args', 'a', InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL, 'EasySwoole 入参', []);
+    }
+
     public function handle()
     {
-        $args = $_SERVER['argv'];
-        array_shift($args);
+        $args = $this->input->getOption('args');
+
+        if (in_array('produce', $args)) {
+            Core::getInstance()->setIsDev(false);
+        }
+        Core::getInstance()->initialize();
 
         $result = $this->command->exec($args);
 
