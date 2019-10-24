@@ -26,6 +26,8 @@ class Application implements ApplicationInterface
 
     public function __construct()
     {
+        require_once __DIR__ . '/../Utility.php';
+
         $container = CommandContainer::getInstance();
 
         $list = $container->getCommandList();
