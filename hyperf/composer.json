@@ -28,6 +28,9 @@
         "hyperf/testing": "1.1.*",
         "swoft/swoole-ide-helper": "dev-master"
     },
+    "bin": [
+        "hyperf.php"
+    ],
     "config": {
         "sort-packages": true
     },
