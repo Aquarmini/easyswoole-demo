@@ -24,11 +24,11 @@ if (file_exists($file)) {
     die("include composer autoload.php fail\n");
 }
 
+// 初始化 CommandContainer
+CommandRunner::getInstance();
+
 if (file_exists(EASYSWOOLE_ROOT . '/bootstrap.php')) {
     require_once EASYSWOOLE_ROOT . '/bootstrap.php';
 }
-
-// 初始化 CommandContainer
-CommandRunner::getInstance();
 
 Application::getInstance()->run();
