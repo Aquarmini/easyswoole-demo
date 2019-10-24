@@ -19,7 +19,15 @@ use Symfony\Component\Console\Input\InputOption;
 
 class EasySwooleCommand extends Command
 {
+    /**
+     * @var CommandInterface
+     */
     protected $command;
+
+    /**
+     * @var bool
+     */
+    protected $coroutine = false;
 
     public function __construct(CommandInterface $command)
     {

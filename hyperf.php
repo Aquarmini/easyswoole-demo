@@ -31,4 +31,4 @@ if (file_exists(EASYSWOOLE_ROOT . '/bootstrap.php')) {
 // 初始化 CommandContainer
 CommandRunner::getInstance();
 
-(new Application())->run();
+Application::getInstance()->run();
