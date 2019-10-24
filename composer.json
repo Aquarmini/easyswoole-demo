@@ -1,6 +1,7 @@
 {
     "require": {
-        "easyswoole/easyswoole": "3.x"
+        "easyswoole/easyswoole": "3.x",
+        "hyperf-cloud/easyswoole-command": "dev-master"
     },
     "require-dev": {
         "swoft/swoole-ide-helper": "^4.2",
@@ -24,6 +25,10 @@
         "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./App"
     },
     "repositories": {
+        "hyperf": {
+            "type": "path",
+            "url": "./hyperf"
+        },
         "packagist": {
             "type": "composer",
             "url": "https://mirrors.aliyun.com/composer"
