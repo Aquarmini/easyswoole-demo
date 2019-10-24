@@ -44,11 +44,6 @@ class EasySwooleCommand extends Command
     {
         $args = $this->input->getOption('args');
 
-        if (in_array('produce', $args)) {
-            Core::getInstance()->setIsDev(false);
-        }
-        Core::getInstance()->initialize();
-
         $result = $this->command->exec($args);
 
         $this->output->success($result);

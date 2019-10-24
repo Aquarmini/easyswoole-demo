@@ -14,6 +14,7 @@ namespace HyperfCloud\EasyswooleCommand;
 
 use EasySwoole\Component\Singleton;
 use EasySwoole\EasySwoole\Command\CommandContainer;
+use EasySwoole\EasySwoole\Core;
 use Hyperf\Command\Command;
 use Hyperf\Contract\ApplicationInterface;
 use Symfony\Component\Console\Application as SymfonyApplication;
@@ -48,6 +49,11 @@ class Application implements ApplicationInterface
         foreach ($this->commands as $command) {
             $application->add($command);
         }
+
+        if (in_array('produce', $_SERVER['argv'])) {
+            Core::getInstance()->setIsDev(false);
+        }
+        Core::getInstance()->initialize();
 
         return $application->run();
     }
